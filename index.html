@@ -92,12 +92,12 @@
   /* La paleta tiñe TODA la página (fondo + superficies), no solo texto/acentos */
   @supports (color: color-mix(in srgb, red, blue)) {
     [data-mode="light"] {
-      --c-bg: color-mix(in srgb, var(--c-primary) 10%, #F7F3EC);
-      --c-surface: color-mix(in srgb, var(--c-primary) 5%, #FFFFFF);
+      --c-bg: color-mix(in srgb, var(--c-primary) 20%, #F7F3EC);
+      --c-surface: color-mix(in srgb, var(--c-primary) 11%, #FFFFFF);
     }
     [data-mode="dark"] {
-      --c-bg: color-mix(in srgb, var(--c-primary) 18%, #161310);
-      --c-surface: color-mix(in srgb, var(--c-primary) 16%, #221E19);
+      --c-bg: color-mix(in srgb, var(--c-primary) 24%, #161310);
+      --c-surface: color-mix(in srgb, var(--c-primary) 20%, #211E19);
     }
   }
 
@@ -240,7 +240,7 @@
      ============================================================ */
   .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; position: relative; padding: 120px 0 80px;
+    text-align: center; position: relative; padding: 120px 0 130px;
     background:
       radial-gradient(120% 90% at 50% -10%, var(--c-primary-soft), transparent 60%),
       radial-gradient(80% 60% at 90% 110%, var(--c-metal-soft), transparent 55%);
@@ -306,6 +306,8 @@
 
   .scroll-cue { position:absolute; bottom: 26px; left:50%; transform: translateX(-50%); color: var(--c-muted); font-size:.66rem; letter-spacing:.3em; text-transform:uppercase; z-index:2; }
   .scroll-cue .line { width:1px; height:38px; background: var(--c-metal); margin: 10px auto 0; animation: cue 2.2s var(--ease) infinite; transform-origin: top; }
+  /* en viewports cortos el "Desliza" se encima al boton -> lo ocultamos */
+  @media (max-height: 860px){ .scroll-cue { display: none; } }
   @keyframes cue { 0%,100%{ transform: scaleY(.4); opacity:.4 } 50%{ transform: scaleY(1); opacity:1 } }
 
   /* ============================================================
