@@ -89,13 +89,25 @@
   [data-mode="dark"][data-palette="marino"] { --c-primary:#6E93B5; --c-accent:#E0926C; --c-metal:#D9BD83; }
   [data-mode="dark"][data-palette="mocha"]  { --c-primary:#C99B85; --c-accent:#A9BC97; --c-metal:#DDBE83; }
 
+  /* La paleta tiñe TODA la página (fondo + superficies), no solo texto/acentos */
+  @supports (color: color-mix(in srgb, red, blue)) {
+    [data-mode="light"] {
+      --c-bg: color-mix(in srgb, var(--c-primary) 10%, #F7F3EC);
+      --c-surface: color-mix(in srgb, var(--c-primary) 5%, #FFFFFF);
+    }
+    [data-mode="dark"] {
+      --c-bg: color-mix(in srgb, var(--c-primary) 18%, #161310);
+      --c-surface: color-mix(in srgb, var(--c-primary) 16%, #221E19);
+    }
+  }
+
   /* ============================================================
      BASE
      ============================================================ */
   * { box-sizing: border-box; }
   /* el anti-robo (user-select:none en body) NO debe impedir escribir/seleccionar en el formulario */
   input, textarea, select, [contenteditable] { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
   body {
     margin: 0;
     font-family: var(--font-sans);
@@ -214,6 +226,7 @@
       position: absolute; top: 100%; left: 0; right: 0;
       flex-direction: column; gap: 0; align-items: stretch;
       background: var(--c-surface); border-bottom: 1px solid var(--c-line);
+      box-shadow: 0 18px 34px -20px var(--c-shadow);
       max-height: 0; overflow: hidden; transition: max-height .35s var(--ease);
     }
     .nav-links.open { max-height: 480px; }
@@ -364,16 +377,16 @@
   .rsvp-card { padding: clamp(1.8rem, 5vw, 3rem); }
   .form-label { font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color: var(--c-muted); font-weight:700; margin-bottom:.4rem; }
   .form-control, .form-select {
-    background: var(--c-bg); border:1px solid var(--c-line); color: var(--c-text);
+    background-color: var(--c-bg); border:1px solid var(--c-line); color: var(--c-text);
     border-radius:4px; padding:.7rem .9rem; transition: border-color .25s, box-shadow .25s, background-color .4s, color .4s;
   }
   .form-control:focus, .form-select:focus {
-    background: var(--c-bg); color: var(--c-text);
+    background-color: var(--c-bg); color: var(--c-text);
     border-color: var(--c-primary); box-shadow: 0 0 0 .18rem var(--c-primary-soft);
   }
   .form-control::placeholder { color: var(--c-muted); opacity:.7; }
   /* el caret del select hereda mejor en dark */
-  .form-select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236F6A60' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
+  .form-select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236F6A60' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); background-repeat:no-repeat; background-position:right .9rem center; background-size:14px 11px; padding-right:2.4rem; }
   .form-control.invalid, .form-select.invalid { border-color: var(--c-accent); }
   .attend-toggle { display:flex; gap:.8rem; }
   .attend-toggle label {
@@ -502,7 +515,7 @@
   .wm-bar .star { color: var(--c-metal); }
 
   /* contenido por encima de la marca diagonal */
-  .nav-wrap, .section { position: relative; z-index: 2; }
+  .section { position: relative; z-index: 2; }
 
   /* ============================================================
      ANIMACIONES SCROLL
