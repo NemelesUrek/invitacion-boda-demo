@@ -6,6 +6,22 @@
 <title>Valentina &amp; Mateo — Nuestra Boda</title>
 <meta name="description" content="Invitación de boda de Valentina y Mateo — Sábado 12 de diciembre de 2026, Hacienda Los Olivos, Mérida, Yucatán." />
 
+<!-- Open Graph / Twitter Cards -->
+<meta property="og:title" content="Invitación de Boda Digital — Demo Interactiva" />
+<meta property="og:description" content="Demo interactiva de invitación de boda con 4 temas de color, modo oscuro, confirmación RSVP y cuenta regresiva en vivo." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nemelesurek.github.io/invitacion-boda-demo/" />
+<meta property="og:image" content="https://nemelesurek.github.io/invitacion-boda-demo/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Invitación de Boda Digital — Demo Interactiva" />
+<meta name="twitter:description" content="Demo interactiva de invitación de boda con 4 temas de color, modo oscuro, confirmación RSVP y cuenta regresiva en vivo." />
+<meta name="twitter:image" content="https://nemelesurek.github.io/invitacion-boda-demo/og.png" />
+
+<!-- Favicon (monograma V&M, color primario por defecto: salvia #8A9A7B) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%238A9A7B'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='26' font-style='italic' fill='%23FFFFFF' text-anchor='middle'%3EV%26amp;M%3C/text%3E%3C/svg%3E" />
+
 <!-- Bootstrap 5 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
@@ -508,12 +524,14 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='340' height='200'><text x='20' y='110' font-family='Lato, sans-serif' font-size='22' fill='%23ffffff' transform='rotate(-30 20 110)'>DEMO · Nemeles · Workana</text></svg>");
   }
   .wm-bar {
-    position: fixed; left:0; right:0; bottom:0; z-index: 5000; pointer-events:none;
+    position: fixed; left:0; right:0; bottom:0; z-index: 5000; pointer-events:auto;
+    display:block; cursor:pointer;
     background: color-mix(in srgb, var(--c-text) 88%, black);
-    color: var(--c-bg);
+    color: var(--c-bg); text-decoration:none;
     text-align:center; font-family: var(--font-sans); font-size:.7rem; letter-spacing:.28em; text-transform:uppercase;
     padding:7px 10px; font-weight:700;
   }
+  .wm-bar:hover, .wm-bar:focus { color: var(--c-bg); text-decoration:underline; }
   .wm-bar .star { color: var(--c-metal); }
 
   /* contenido por encima de la marca diagonal */
@@ -902,7 +920,7 @@
           <h4>Notas para invitados</h4>
           <p>Hay estacionamiento dentro de la hacienda. El evento es para mayores de edad.</p>
           <p>Habrá servicio de transporte desde el Hotel Casa Mérida a las 16:00 h.</p>
-          <span class="meta">Confirma transporte en tu RSVP</span>
+          <span class="meta">Habrá transporte desde el Hotel Casa Mérida a las 16:00 h</span>
         </div>
       </div>
     </div>
@@ -941,16 +959,15 @@
 </aside>
 
 <!-- ===== MARCA DE AGUA INFERIOR (fija) ===== -->
-<div class="wm-bar" aria-hidden="true">DEMO <span class="star">·</span> Nemeles <span class="star">·</span> disponible en Workana</div>
+<a class="wm-bar" href="https://github.com/NemelesUrek" target="_blank" rel="noopener">DEMO de portafolio <span class="star">·</span> Nemeles <span class="star">·</span> github.com/NemelesUrek</a>
 
 <!-- ===== SCRIPTS ===== -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
 (function () {
   "use strict";
 
   /* ---------- Aviso en consola ---------- */
-  console.log("%cDemo protegida — Nemeles — contrátame en Workana",
+  console.log("%cDEMO de portafolio · Nemeles · github.com/NemelesUrek",
     "background:#8A9A7B;color:#fff;padding:6px 12px;border-radius:4px;font-size:13px;");
 
   /* ============================================================
